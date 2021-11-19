@@ -1,0 +1,19 @@
+extends ../shared/layout
+
+block object-forms
+    form
+        .input-wrapper.p-3
+            input(type="text" placeholder="enter station number")
+            input(type="text" placeholder="enter capacity")
+            input(type="text" placeholder="enter demand")
+            input(type="submit")
+
+block objects-table
+    .table-wrapper
+        table(id="table").display.w-100
+            thead
+                tr
+                    th Number
+                    th Capacity
+                    th Demand
+

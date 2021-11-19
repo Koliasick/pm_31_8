@@ -1,0 +1,6 @@
+mixin navbar_element(name,link,active)
+    li.nav-item
+        if active
+            a.nav-link.active(href=link)= name
+        else
+            a.nav-link(href=link)= name

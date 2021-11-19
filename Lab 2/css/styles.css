@@ -1,0 +1,42 @@
+input[type="text"], input[type="submit"]{
+    border: 1px solid #666666;
+    border-radius: 5px;
+}
+::-webkit-input-placeholder {
+    text-align: center;
+}
+.input-wrapper{
+    border: 1px solid #666666;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(30,34,45,0.09);
+}
+.table-wrapper{
+    border: 1px solid #666666;
+    border-radius: 5px;
+    width: 100%;
+    background-color: rgba(30,34,45,0.09);
+}
+.edit{
+    border: 1px solid #666666;
+    border-radius: 5px;
+    background-color: rgba(25,30,38,0.09);
+    width: 20px;
+    text-align: center;
+}
+.navigation-bar{
+    border: 1px solid #666666;
+    border-radius: 5px;
+    background-color: rgba(30,34,45,0.09);
+}
+#left{
+    justify-content: left;
+}
+.active{
+    color: darkslategrey;
+}
+.nav-link:hover{
+    color: darkslategrey;
+}
