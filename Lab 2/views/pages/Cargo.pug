@@ -1,0 +1,28 @@
+extends ../shared/layout
+
+block object-forms
+    form#cargo-form(onsubmit="return Submit();")
+        .input-wrapper.p-3
+            input#unique(type="text" placeholder="enter cargo code" name="code")
+            input(type="text" placeholder="enter name" name="name")
+            input(type="text" placeholder="enter mass" name="mass")
+            input#submit-button(type="submit")
+            div#delete-button.px-1.disabled Delete
+
+block objects-table
+    .table-wrapper
+        table(id="table").display.w-100
+            thead
+                tr
+                    th Code
+                    th Name
+                    th Mass
+
+block scripts
+    script(src="node_modules/jquery/dist/jquery.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous")
+    script(type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.js")
+    script(src="/js/models/base.js")
+    script(src="/js/models/cargoModel.js")
+    script(src="/js/views/Cargo.js")
+    script(src="/js/main.js")

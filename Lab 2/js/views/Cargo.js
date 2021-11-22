@@ -1,6 +1,6 @@
-let model = new SpaceStationModel();
+let model = new CargoModel();
 function Submit(){
-    const form = document.getElementById("space-station-form");
+    const form = document.getElementById("cargo-form");
     const formData = new FormData(form);
     const stationData = {}
     const row = [];
@@ -8,8 +8,8 @@ function Submit(){
         stationData[key] = value
         row.push(value)
     })
-    if(!(model.Find((elem)=> elem["number"] == stationData["number"]) === undefined)) {
-        model.Edit((elem)=> elem["number"] == stationData["number"],stationData)
+    if(!(model.Find((elem)=> elem["code"] == stationData["code"]) === undefined)) {
+        model.Edit((elem)=> elem["code"] == stationData["code"],stationData)
         document.location.reload();
         return;
     }
@@ -22,21 +22,21 @@ document.addEventListener('table-created', () => {
     const data = model.Select();
     data.forEach((elem)=>{
         const row = [];
-        row.push(elem["number"])
-        row.push(elem["capacity"])
-        row.push(elem["demand"])
+        row.push(elem["code"])
+        row.push(elem["name"])
+        row.push(elem["mass"])
         AddRow(row);
     })
 })
-document.getElementById("space-station-form").addEventListener('change',()=>{
-    const formData = new FormData(document.getElementById("space-station-form"));
+document.getElementById("cargo-form").addEventListener('change',(e)=>{
+    const formData = new FormData(document.getElementById("cargo-form"));
     const stationData = {}
     formData.forEach((value, key) => {
         stationData[key] = value
     })
     let del = document.getElementById("delete-button")
     let submit = document.getElementById("submit-button")
-    if(!(model.Find((elem)=> elem["number"] == stationData["number"]) === undefined)) {
+    if(!(model.Find((elem)=> elem["code"] == stationData["code"]) === undefined)) {
         del.classList.remove("disabled")
         del.classList.add("enabled")
         del.addEventListener('click',Delete)
@@ -51,7 +51,7 @@ document.getElementById("space-station-form").addEventListener('change',()=>{
 })
 function Delete(){
     model.Delete((elem)=>
-        document.getElementById("unique").value == elem["number"]
+        document.getElementById("unique").value == elem["code"]
     )
     document.location.reload();
 }

@@ -13,11 +13,19 @@ html
             nav.navbar.navigation-bar
                 #left.container-fluid
                     a.navbar-brand Lab 2
-                    ul.navbar-nav
+                    ul.navbar-nav.flex-row
                         if(title == "Space Station")
                             +navbar_element("Space Station","SpaceStation",true)
                         else
                             +navbar_element("Space Station","SpaceStation")
+                        if(title == "Planet")
+                            +navbar_element("Planet","Planet",true)
+                        else
+                            +navbar_element("Planet","Planet")
+                        if(title == "Cargo")
+                            +navbar_element("Cargo","Cargo",true)
+                        else
+                            +navbar_element("Cargo","Cargo")
 
             .forms.mt-4
                 block object-forms
