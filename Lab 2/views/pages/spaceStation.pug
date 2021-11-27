@@ -7,7 +7,6 @@ block object-forms
             input(type="text" placeholder="enter capacity" name="capacity")
             input(type="text" placeholder="enter demand" name="demand")
             input#submit-button(type="submit")
-            div#delete-button.px-1.disabled Delete
 
 block objects-table
     .table-wrapper
@@ -17,6 +16,7 @@ block objects-table
                     th Number
                     th Capacity
                     th Demand
+                    th Actions
 
 block scripts
     script(src="node_modules/jquery/dist/jquery.min.js")
@@ -25,4 +25,6 @@ block scripts
     script(src="/js/models/base.js")
     script(src="/js/models/spaceStationModel.js")
     script(src="/js/views/SpaceStation.js")
+    script(src="/js/models/PlanetStation.js")
+    script(src="/js/models/planetModel.js")
     script(src="/js/main.js")

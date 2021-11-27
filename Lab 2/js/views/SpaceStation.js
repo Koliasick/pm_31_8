@@ -3,55 +3,51 @@ function Submit(){
     const form = document.getElementById("space-station-form");
     const formData = new FormData(form);
     const stationData = {}
-    const row = [];
     formData.forEach((value, key) => {
         stationData[key] = value
-        row.push(value)
     })
     if(!(model.Find((elem)=> elem["number"] == stationData["number"]) === undefined)) {
-        model.Edit((elem)=> elem["number"] == stationData["number"],stationData)
-        document.location.reload();
-        return;
+        alert("Error such entry already exists");
+        return false;
     }
     model.Create(stationData);
-    AddRow(row);
-    form.reset();
-    return false;
+    return true;
 }
 document.addEventListener('table-created', () => {
     const data = model.Select();
-    data.forEach((elem)=>{
+    data.forEach((element)=>{
         const row = [];
-        row.push(elem["number"])
-        row.push(elem["capacity"])
-        row.push(elem["demand"])
-        AddRow(row);
+        row.push(element["number"])
+        row.push("<input type='text' name='capacity' data-identifier='"+element["number"]+"' value='" + element["capacity"] + "'class='table-column-input' >")
+        row.push("<input type='text' name='demand' data-identifier='"+element["number"]+"' value='" + element["demand"] + "'class='table-column-input' >")
+        AddRow(row,"<div class='actions-wrapper'> <button class='button px-1 mx-1' onclick='Delete("+element["number"]+")'>Delete</button> </div>");
+    })
+    $('[data-bs-toggle="popover"]').popover({
+        container: 'body',
+        html: true,
+        content: function () {
+            return  $(this).data('bs-content');
+        }
+    }).click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    $(".table-column-input").on('change',(e)=>{
+        let data = model.GetEmpty();
+        let identifier = e.currentTarget.dataset.identifier;
+        let dataName = e.currentTarget.getAttribute("name");
+        data[dataName] = e.currentTarget.value;
+        Edit(identifier,data);
     })
 })
-document.getElementById("space-station-form").addEventListener('change',()=>{
-    const formData = new FormData(document.getElementById("space-station-form"));
-    const stationData = {}
-    formData.forEach((value, key) => {
-        stationData[key] = value
-    })
-    let del = document.getElementById("delete-button")
-    let submit = document.getElementById("submit-button")
-    if(!(model.Find((elem)=> elem["number"] == stationData["number"]) === undefined)) {
-        del.classList.remove("disabled")
-        del.classList.add("enabled")
-        del.addEventListener('click',Delete)
-        submit.value = "Edit";
-    }
-    else{
-        del.classList.add("disabled")
-        del.classList.remove("enabled")
-        del.removeEventListener('click',Delete)
-        submit.value = "Submit";
-    }
-})
-function Delete(){
+function Delete(number){
     model.Delete((elem)=>
-        document.getElementById("unique").value == elem["number"]
+        number == elem["number"]
     )
     document.location.reload();
 }
+function Edit(number,data){
+    model.Edit((elem)=> elem["number"] == number,data);
+}
+
+

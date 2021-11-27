@@ -4,6 +4,9 @@ $(document).ready(function() {
     table = $('#table').DataTable();
     document.dispatchEvent(event);
 } );
-function AddRow (/* array */data) {
-    table.row.add( data ).draw( false );
+function AddRow (/* array */data,actions) {
+    if(actions != undefined) {
+        data.push(actions);
+    }
+    table.row.add( data ).draw();
 } ;

@@ -76,6 +76,12 @@ class BaseModel {
     Edit(callback,row){
         const collection = this.Select()
         const elem = this.Find(callback)
+        const obj = Object.entries(row)
+        for(let key in obj){
+            if(obj[key][1] == null || obj[key][1] == ""){
+                row[obj[key][0]] = elem[obj[key][0]];
+            }
+        }
         row["id"] = elem["id"]
         collection.splice(this.FindIndexById(elem["id"]),1,row)
         this.Commit(collection)
