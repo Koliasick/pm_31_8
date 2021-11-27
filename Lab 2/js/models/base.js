@@ -70,6 +70,7 @@ class BaseModel {
     Delete(/* function */callback){
         const collection = this.Select()
         const elem = this.Find(callback)
+        if(elem == undefined) return;
         collection.splice(this.FindIndexById(elem["id"]),1)
         this.Commit(collection)
     }
