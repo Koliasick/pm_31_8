@@ -12,7 +12,7 @@ html
         .container
             nav.navbar.navigation-bar
                 #left.container-fluid
-                    a.navbar-brand Lab 2
+                    a.navbar-brand(href="/") Lab 2
                     ul.navbar-nav.flex-row
                         if(title == "Space Station")
                             +navbar_element("Space Station","SpaceStation",true)
@@ -29,10 +29,49 @@ html
 
             .forms.mt-4
                 block object-forms
+                    form
+                        .input-wrapper.p-3
+                            select.cargo-selector
+                                option(selected disabled hidden) Choose cargo
+                            select.station-selector
+                                option(selected disabled hidden) Choose station
+                            input(type="submit" value="deliver")
+                    form.mt-4
+                        .input-wrapper.p-3
+                            select.cargo-selector
+                                option(selected disabled hidden) Choose cargo
+                            select.planet-selector
+                                option(selected disabled hidden) Choose planet
+                            input(type="submit" value="deliver")
+                    form.mt-4
+                        .input-wrapper.p-3
+                            select.station-selector
+                                option(selected disabled hidden) Choose station
+                            select.cargo-selector
+                                option(selected disabled hidden) Choose cargo
+                            select.station-selector
+                                option(selected disabled hidden) Choose station
+                            input(type="submit" value="deliver")
+                    form.mt-4
+                        .input-wrapper.p-3
+                            select.planet-selector
+                                option(selected disabled hidden) Choose planet
+                            select.cargo-selector
+                                option(selected disabled hidden) Choose cargo
+                            select.station-selector
+                                option(selected disabled hidden) Choose station
+                            input(type="submit" value="deliver")
             .table.mt-4
                 block objects-table
         block scripts
             script(src="node_modules/jquery/dist/jquery.min.js")
             script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous")
             script(type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.js")
+            script(src="/js/models/base.js")
+            script(src="/js/models/spaceStationModel.js")
+            script(src="/js/models/PlanetStation.js")
+            script(src="/js/models/planetModel.js")
+            script(src="/js/models/cargoPlanet.js")
+            script(src="/js/models/cargoStation.js")
+            script(src="/js/views/SpaceStation.js")
             script(src="/js/main.js")
