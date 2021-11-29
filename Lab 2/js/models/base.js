@@ -60,7 +60,6 @@ class BaseModel {
         }
 
         collection.push(entry)
-
         this.Commit(collection)
     }
     Find(/* function */callback){

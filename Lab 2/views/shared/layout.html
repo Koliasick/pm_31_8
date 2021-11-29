@@ -21,7 +21,7 @@
         </div>
       </nav>
       <div class="forms mt-4">
-        <form class="action-one">
+        <form class="action-one" onsubmit="return MakeDelivery();">
           <div class="input-wrapper p-3">
             <select class="cargo-selector">
               <option selected disabled hidden>Choose cargo</option>
@@ -34,6 +34,17 @@
         </form>
       </div>
       <div class="table mt-4">
+        <div class="table-wrapper">
+          <table class="display w-100" id="table">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Capacity</th>
+                <th>Demand</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>

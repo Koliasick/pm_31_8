@@ -29,7 +29,7 @@ html
 
             .forms.mt-4
                 block object-forms
-                    form.action-one
+                    form.action-one(onsubmit="return MakeDelivery();")
                         .input-wrapper.p-3
                             select.cargo-selector
                                 option(selected disabled hidden) Choose cargo
@@ -38,6 +38,13 @@ html
                             input(type="submit" value="deliver")
             .table.mt-4
                 block objects-table
+                    .table-wrapper
+                        table(id="table").display.w-100
+                            thead
+                                tr
+                                    th Number
+                                    th Capacity
+                                    th Demand
         block scripts
             script(src="node_modules/jquery/dist/jquery.min.js")
             script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous")
