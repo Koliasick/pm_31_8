@@ -21,51 +21,12 @@
         </div>
       </nav>
       <div class="forms mt-4">
-        <form>
+        <form class="action-one">
           <div class="input-wrapper p-3">
             <select class="cargo-selector">
               <option selected disabled hidden>Choose cargo</option>
             </select>
-            <select class="station-selector">
-              <option selected disabled hidden>Choose station</option>
-            </select>
-            <input type="submit" value="deliver">
-          </div>
-        </form>
-        <form class="mt-4">
-          <div class="input-wrapper p-3">
-            <select class="cargo-selector">
-              <option selected disabled hidden>Choose cargo</option>
-            </select>
-            <select class="planet-selector">
-              <option selected disabled hidden>Choose planet</option>
-            </select>
-            <input type="submit" value="deliver">
-          </div>
-        </form>
-        <form class="mt-4">
-          <div class="input-wrapper p-3">
-            <select class="station-selector">
-              <option selected disabled hidden>Choose station</option>
-            </select>
-            <select class="cargo-selector">
-              <option selected disabled hidden>Choose cargo</option>
-            </select>
-            <select class="station-selector">
-              <option selected disabled hidden>Choose station</option>
-            </select>
-            <input type="submit" value="deliver">
-          </div>
-        </form>
-        <form class="mt-4">
-          <div class="input-wrapper p-3">
-            <select class="planet-selector">
-              <option selected disabled hidden>Choose planet</option>
-            </select>
-            <select class="cargo-selector">
-              <option selected disabled hidden>Choose cargo</option>
-            </select>
-            <select class="station-selector">
+            <select class="receiver-selector">
               <option selected disabled hidden>Choose station</option>
             </select>
             <input type="submit" value="deliver">
@@ -82,9 +43,10 @@
     <script src="/js/models/spaceStationModel.js"></script>
     <script src="/js/models/PlanetStation.js"></script>
     <script src="/js/models/planetModel.js"></script>
+    <script src="/js/models/cargoModel.js"></script>
     <script src="/js/models/cargoPlanet.js"></script>
     <script src="/js/models/cargoStation.js"></script>
-    <script src="/js/views/SpaceStation.js"></script>
+    <script src="/js/views/Home.js"></script>
     <script src="/js/main.js"></script>
   </body>
 </html>

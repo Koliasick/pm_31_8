@@ -29,36 +29,11 @@ html
 
             .forms.mt-4
                 block object-forms
-                    form
+                    form.action-one
                         .input-wrapper.p-3
                             select.cargo-selector
                                 option(selected disabled hidden) Choose cargo
-                            select.station-selector
-                                option(selected disabled hidden) Choose station
-                            input(type="submit" value="deliver")
-                    form.mt-4
-                        .input-wrapper.p-3
-                            select.cargo-selector
-                                option(selected disabled hidden) Choose cargo
-                            select.planet-selector
-                                option(selected disabled hidden) Choose planet
-                            input(type="submit" value="deliver")
-                    form.mt-4
-                        .input-wrapper.p-3
-                            select.station-selector
-                                option(selected disabled hidden) Choose station
-                            select.cargo-selector
-                                option(selected disabled hidden) Choose cargo
-                            select.station-selector
-                                option(selected disabled hidden) Choose station
-                            input(type="submit" value="deliver")
-                    form.mt-4
-                        .input-wrapper.p-3
-                            select.planet-selector
-                                option(selected disabled hidden) Choose planet
-                            select.cargo-selector
-                                option(selected disabled hidden) Choose cargo
-                            select.station-selector
+                            select.receiver-selector
                                 option(selected disabled hidden) Choose station
                             input(type="submit" value="deliver")
             .table.mt-4
@@ -71,7 +46,8 @@ html
             script(src="/js/models/spaceStationModel.js")
             script(src="/js/models/PlanetStation.js")
             script(src="/js/models/planetModel.js")
+            script(src="/js/models/cargoModel.js")
             script(src="/js/models/cargoPlanet.js")
             script(src="/js/models/cargoStation.js")
-            script(src="/js/views/SpaceStation.js")
+            script(src="/js/views/Home.js")
             script(src="/js/main.js")
